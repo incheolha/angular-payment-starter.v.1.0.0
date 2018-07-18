@@ -1,0 +1,16 @@
+
+<!--Double navigation-->
+<app-header *ngIf="!mainNavHide">
+    <!-- Sidebar navigation -->
+    <mdb-sidenav #sidenav class="sn-bg-1" [fixed]="false">
+       <app-sidenav-list></app-sidenav-list>
+    </mdb-sidenav>
+    <!--/. Sidebar navigation -->
+    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+
+</app-header>
+
+<router-outlet></router-outlet>
+ <app-footer>
+
+</app-footer> 
