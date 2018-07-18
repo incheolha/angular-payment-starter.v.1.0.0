@@ -1,0 +1,33 @@
+
+<div class="row">
+
+  <form novalidate (ngSubmit)="buy($event)" [formGroup]="stripeTest">
+
+    <div class="row m-5">
+      <col-md-2></col-md-2>
+        <div class="col-md-10 text-center">
+            <input type='text'
+            formControlName="name"
+            placeholder="Tony Ha">
+        </div>
+    </div>
+    <hr>
+  <div class="row m-5">
+    <div class="col-md-2"></div>
+    <div class="col-md-10 field text-center" id="card-number" mdbInputDirective></div>
+  </div>
+
+  <div class="row m-5">
+      <div class="col-md-2"></div>
+      <div class="col-md-10 field text-center" id="card-expiry" mdbInputDirective></div>
+    </div>
+
+    <div class="row m-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-10 field text-center" id="card-cvc" mdbInputDirective></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg">Buy</button>
+
+    </form>
+</div>

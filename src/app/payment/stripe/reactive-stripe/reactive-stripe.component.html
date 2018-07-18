@@ -1,0 +1,143 @@
+<br>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-md-9">
+      <div class="card">
+          <p class="h4 text-center py-4">Payment Method Select</p>
+          <!-- Card body -->
+          <div class="card-body">
+  
+              <div class="card">
+             
+                  <div class="card-body text-center">
+                      <br>
+                          <h4>Credit and Debit Card</h4>
+                      <br>
+                      <div class="text-center" id="cardImages">
+                          <i class="fa fa-cc-mastercard" id="fa-cc-mastercard"  aria-hidden="true"></i>
+                          <i class="fa fa-cc-visa" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-amex" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-stripe" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-google-wallet" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-discover" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-jcb" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-diners-club" size="2x" aria-hidden="true"></i>
+                      </div>
+                    <br>
+                    <form [formGroup]="myForm" (ngSubmit)="onStripeSubmit()">
+                       Card Number
+                      <div class="row">
+                
+                          <div class="col-md-12 mx-auto">
+                  
+                              <div class="md-form">
+                                  
+                                  <input mdbInputDirective
+                                         type="tel"
+                                         id="cc-number"
+                                         autocomplete="cc-number" 
+                                         formControlName="paymentCardNumber" 
+                                         class="form-control"
+                                         ccNumber
+                                         >
+                          
+                                  <label for="paymentCardNumber" class="font-weight-light">Please enter your Card Number</label>
+                              </div>
+  
+
+                          </div>
+                      </div>
+                      <br>
+                      
+                      Expiration Date
+
+                      <div class="row">
+                          
+                          <div class="col-5">
+                              
+                              <div class="md-form">
+                                
+                                <mdb-select 
+                                    [options]="this.monthSelect" 
+                                    placeholder="Month"
+                                    class="colorful-select dropdown-primary"
+                                    id="paymentCardExpiredMonth" 
+                                    formControlName="paymentCardExpiredMonth"
+                                ></mdb-select>
+
+                             </div>
+                          </div>
+                          
+                          <div class="col-4">
+                                <div class="md-form" >
+                                    <mdb-select 
+                                        [options]="this.yearSelect" 
+                                        placeholder="Year"
+                                        class="colorful-select dropdown-primary"
+                                        id="paymentCardExpiredYear" 
+                                        formControlName="paymentCardExpiredYear"
+                     
+                                    >
+                                  </mdb-select>
+                                    <!-- <label for="paymentCardExpiredYear" class="font-weight-light"></label> -->
+  
+                                </div>
+                          </div>
+                          <div class="col-3">
+                              <div class="md-form">
+                                  <i class="fa fa-lock prefix grey-text"></i>
+                                  <input mdbInputDirective
+                                         type="tel"                                        
+                                         id="cc-cvc" 
+                                         formControlName="paymentCardCVCNumber" 
+                                         autocomplete="off"
+                                         class="form-control"
+                                         ccCvc>
+                                    <label for="paymentCardCVCNumber" class="font-weight-light">CVC</label>
+                                </div>
+                          </div>
+                        
+                      </div>
+                  
+                    
+                        <div class="text-center py-4 mt-3">
+                          <button class="btn btn-default waves-light" 
+                                  type="submit" 
+                                  [disabled]="!myForm.valid"
+                                  mdbWavesEffect>Checkout</button>
+                        </div>
+                    </form>
+
+                  </div>
+                </div>
+                <br>
+               <div class="card">
+                <div class="card-body">
+                    <br>
+                    <h6>Paypal</h6>
+                    <i class="fa fa-paypal" aria-hidden="true"></i> 
+                   
+                   
+                    <div class="text-center py-4 mt-3">
+                            
+                            <button class="btn btn-cyan waves-light" type="submit" (click)="onPaypalSubmit()" mdbWavesEffect>Checkout with Paypal</button>
+                    </div>
+
+                  </div>
+
+               </div>
+
+          </div>
+      </div>
+        
+  </div>
+      
+ 
+  <div class="col-md-3">
+ 
+  </div>
+</div>
+
+
