@@ -66,6 +66,7 @@ export class CustomStripeComponent implements OnInit {
   buy() {
     const name = this.stripeTest.get('name').value;
 
+    console.log(this.cardNumber);
     this.stripeService
                       .createToken(this.cardNumber, { name })
                       .subscribe(result => {
