@@ -2,42 +2,73 @@
 <br>
 
 <div class="row">
-  <div class="col-md-7">
+  <div class="col-md-8">
       <div class="card">
           <p class="h4 text-center py-4"> Simple Payment Method Select</p>
           <!-- Card body -->
           <div class="card-body">
-  
+            <form [formGroup]="stripeForm" (ngSubmit)="onStripeSubmit()">
               <div class="card">
              
                   <div class="card-body">
-                      <br>
-                      <div class="row">
-                        <div class="col-md-12 text-center">
-                          <h4>Credit or Debit Card</h4>
-                        </div>
+                      
+                    <div class="row">
+                      <div class="col-md-12">
+                        <input mdbInputDirective
+                                type="text"
+                                id="cardHolderName" 
+                                formControlName="cardHolderName" 
+                                placeholder="Card Holder Name"
+                                class="form-control">
                       </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-8">
+                        <input mdbInputDirective
+                                type="email"
+                                id="cardHolderEmail" 
+                                formControlName="cardHolderEmail" 
+                                placeholder="Card Holder Email"
+                                class="form-control">
+                      </div>
+                      <div class="col-md-4">
+                        <input mdbInputDirective
+                                type="text"
+                                id="cardHolderZip" 
+                                formControlName="cardHolderZip"
+                                placeholder="Zip" 
+                                class="form-control">
+                      </div>
+                      
+                    </div>
+<hr>
+                    <div class="row">
+                      <div class="col-md-12 text-center">
+                        <h4>Credit or Debit Card</h4>
+                      </div>
+                    </div>
                     
                       <hr>
 
-                      <div class="row">
-                        <div class="col-md-12 text-center">
-                          <div id="cardImages">
-                            <i class="fa fa-cc-mastercard" id="fa-cc-mastercard"  aria-hidden="true"></i>
-                            <i class="fa fa-cc-visa" size="2x" aria-hidden="true"></i>
-                            <i class="fa fa-cc-amex" size="2x" aria-hidden="true"></i>
-                            <i class="fa fa-cc-stripe" size="2x" aria-hidden="true"></i>
-                            <i class="fa fa-google-wallet" size="2x" aria-hidden="true"></i>
-                            <i class="fa fa-cc-discover" size="2x" aria-hidden="true"></i>
-                            <i class="fa fa-cc-jcb" size="2x" aria-hidden="true"></i>
-                            <i class="fa fa-cc-diners-club" size="2x" aria-hidden="true"></i>
-                          </div>
+                    <div class="row">
+                      <div class="col-md-12 text-center">
+                        <div id="cardImages">
+                          <i class="fa fa-cc-mastercard" id="fa-cc-mastercard"  aria-hidden="true"></i>
+                          <i class="fa fa-cc-visa" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-amex" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-stripe" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-google-wallet" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-discover" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-jcb" size="2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-diners-club" size="2x" aria-hidden="true"></i>
                         </div>
                       </div>
- 
-                    <br>
+                    </div>
 
-                    <form [formGroup]="myForm" (ngSubmit)="onStripeSubmit()">
+                      <br>
+
+                    
                       <div class="row">          
                         <div class="col-md-3 ml-0">
                           <p>Card Number</p>
@@ -66,17 +97,20 @@
                         <div class="text-center py-4 mt-3">
                           <button class="btn btn-cyan waves-light" type="submit" mdbWavesEffect>Checkout</button>
                         </div>
-                    </form>
 
                   </div>
-                </div>
-
-                <br>
+              </div>
+            </form>
                <div class="card">
                 <div class="card-body">
                     <br>
                     <div class="text-center py-4 mt-3">      
-                       <button class="btn btn-cyan waves-light" type="submit" (click)="onPaypalSubmit()" mdbWavesEffect>Checkout with Paypal</button>
+                       <button class="btn btn-cyan waves-light" 
+                                type="button" 
+                                (click)="onPaypalSubmit()" 
+                                mdbWavesEffect>
+                                Checkout with Paypal
+                        </button>
                     </div>
                 </div>
                </div>

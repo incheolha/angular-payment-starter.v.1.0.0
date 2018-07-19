@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { CreditCardValidator } from 'angular-cc-library';
 import { StripeService, Elements, Element as StripeElement, ElementsOptions } from 'ngx-stripe';
+import { StripeModel } from '../stripeModel/stripeModel';
+
+import { Http, Headers, Response } from '@angular/http';
 
 @Component({
   selector: 'app-reactive-stripe',
@@ -10,6 +13,7 @@ import { StripeService, Elements, Element as StripeElement, ElementsOptions } fr
 })
 export class ReactiveStripeComponent implements OnInit {
 
+  stripeInfo: StripeModel;
 
   cardNumber: StripeElement;
   cardExpiry: StripeElement;
@@ -23,15 +27,18 @@ export class ReactiveStripeComponent implements OnInit {
     locale: 'en'
   };
 
-  myForm: FormGroup;
+  stripeForm: FormGroup;
 
   constructor(private fb: FormBuilder,
+              private http: Http,
               private stripeService: StripeService) { }
 
   ngOnInit() {
 
-    this.myForm = this.fb.group({
-      name: ['', [Validators.required]]
+    this.stripeForm = this.fb.group({
+      cardHolderName: ['', [Validators.required]],
+      cardHolderEmail: ['', [Validators.required]],
+      cardHolderZip: ['', [Validators.required]]
     });
 
     this.stripeService.elements(this.elementOptions)
@@ -62,30 +69,44 @@ export class ReactiveStripeComponent implements OnInit {
     }
 
   onStripeSubmit() {
-    console.log(this.myForm.value);
+    console.log(this.stripeForm.value);
+    
     console.log(this.cardNumber);
+    console.log(this.cardExpiry);
+    console.log(this.cardCvc);
+  
     this.stripeService
                       .createToken(this.cardNumber, { name })
                       .subscribe(result => {
                         if ( result.token ) {
                             console.log(result.token.id);
                             const token = result.token.id;
-                            this.gotoStripeCharge(token);
+                              
+                                    this.stripeInfo = new StripeModel(
+                                      this.stripeForm.value.cardHolderName,
+                                      this.stripeForm.value.cardHolderEmail,
+                                      this.stripeForm.value.cardHolderZip,
+                                      token
+                                    )
+
+                            this.gotoStripeCharge(this.stripeInfo);
                         } else if (result.error) {
                           console.log(result.error.message);
                         }
                       });
   }
 
-  gotoStripeCharge(token: string) {
+  gotoStripeCharge(stripeCardInfo: StripeModel) {
 
+      const body = JSON.stringify(stripeCardInfo);
       
-      // console.log(token)
-      // const headers = new Headers({'token':token, 'amount':100});
-      // this.http.post('http://localhost:3000/stripepayment', {}, {headers: headers})
-      //   .subscribe(res =>{
-      //     console.log(res);
-      //   })
-      // }
+      console.log(body);
+    
+      const header = new Headers({'Content-Type': 'application/json'});
+      this.http.post('http://localhost:3000/stripepayment', body, {headers: header})
+           .subscribe(res =>{
+                console.log(res);
+           }),
+           (error => console.error(error));
    }
 }

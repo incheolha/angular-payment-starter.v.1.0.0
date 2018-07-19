@@ -43,7 +43,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('stripepayment', stripeRoutes);
+app.use('/stripepayment', stripeRoutes);
 
 // all error are automatically send index.html
 app.get('*', (req, res) => {
