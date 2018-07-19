@@ -1,89 +1,92 @@
-<br>
-<br>
+
 <br>
 
 <div class="row">
-  <div class="col-md-9">
+  <div class="col-md-7">
       <div class="card">
-          <p class="h4 text-center py-4">Payment Method Select</p>
+          <p class="h4 text-center py-4"> Simple Payment Method Select</p>
           <!-- Card body -->
           <div class="card-body">
-
+  
               <div class="card">
-
-                  <div class="card-body text-center">
+             
+                  <div class="card-body">
                       <br>
-                          <h4>Credit and Debit Card</h4>
-                      <br>
-                      <div class="text-center" id="cardImages">
-                          <i class="fa fa-cc-mastercard" id="fa-cc-mastercard"  aria-hidden="true"></i>
-                          <i class="fa fa-cc-visa" size="2x" aria-hidden="true"></i>
-                          <i class="fa fa-cc-amex" size="2x" aria-hidden="true"></i>
-                          <i class="fa fa-cc-stripe" size="2x" aria-hidden="true"></i>
-                          <i class="fa fa-google-wallet" size="2x" aria-hidden="true"></i>
-                          <i class="fa fa-cc-discover" size="2x" aria-hidden="true"></i>
-                          <i class="fa fa-cc-jcb" size="2x" aria-hidden="true"></i>
-                          <i class="fa fa-cc-diners-club" size="2x" aria-hidden="true"></i>
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <h4>Credit or Debit Card</h4>
+                        </div>
                       </div>
+                    
+                      <hr>
+
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <div id="cardImages">
+                            <i class="fa fa-cc-mastercard" id="fa-cc-mastercard"  aria-hidden="true"></i>
+                            <i class="fa fa-cc-visa" size="2x" aria-hidden="true"></i>
+                            <i class="fa fa-cc-amex" size="2x" aria-hidden="true"></i>
+                            <i class="fa fa-cc-stripe" size="2x" aria-hidden="true"></i>
+                            <i class="fa fa-google-wallet" size="2x" aria-hidden="true"></i>
+                            <i class="fa fa-cc-discover" size="2x" aria-hidden="true"></i>
+                            <i class="fa fa-cc-jcb" size="2x" aria-hidden="true"></i>
+                            <i class="fa fa-cc-diners-club" size="2x" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+ 
                     <br>
+
                     <form [formGroup]="myForm" (ngSubmit)="onStripeSubmit()">
-
-                       Card Number
-                      <div class="row">
-                          <div class="col-md-12 mx-auto">
-                              <div id="card-number"></div>
+                      <div class="row">          
+                        <div class="col-md-3 ml-0">
+                          <p>Card Number</p>
+                        </div>
+                          <div class="col-md-8">
+                            <div id="card-number"></div>
                           </div>
                       </div>
-                      <br>
 
-
-                      <div class="row">
-
-                          <div class="col-5">
-                              <div id="card-expiry"></div>
+                      <div class="row">          
+                        <div class="col-md-3 ml-0">
+                          <p>Expiration Date</p>
+                        </div>
+                          <div class="col-md-3">
+                            <div id="card-expiry"></div>
                           </div>
-                          <div class="col-3">
+                          <div class="col-md-3 ml-0">
+                            <p>CVC</p>
+                          </div>
+                            <div class="col-md-3">
                               <div id="card-cvc"></div>
-                          </div>
-
+                            </div>
+                            
                       </div>
-
-
+                  
                         <div class="text-center py-4 mt-3">
-                          <button class="btn btn-default waves-light"
-                                  type="submit"
-
-                                  mdbWavesEffect>Checkout</button>
+                          <button class="btn btn-cyan waves-light" type="submit" mdbWavesEffect>Checkout</button>
                         </div>
                     </form>
 
                   </div>
                 </div>
+
                 <br>
                <div class="card">
                 <div class="card-body">
                     <br>
-                    <h6>Paypal</h6>
-                    <i class="fa fa-paypal" aria-hidden="true"></i>
-
-
-                    <div class="text-center py-4 mt-3">
-
-                            <button class="btn btn-cyan waves-light" type="submit" (click)="onPaypalSubmit()" mdbWavesEffect>Checkout with Paypal</button>
+                    <div class="text-center py-4 mt-3">      
+                       <button class="btn btn-cyan waves-light" type="submit" (click)="onPaypalSubmit()" mdbWavesEffect>Checkout with Paypal</button>
                     </div>
-
-                  </div>
-
+                </div>
                </div>
 
           </div>
+        
       </div>
-
+      
   </div>
-
-
   <div class="col-md-3">
-
   </div>
 </div>
 

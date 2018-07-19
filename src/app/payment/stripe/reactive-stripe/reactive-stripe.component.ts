@@ -30,7 +30,6 @@ export class ReactiveStripeComponent implements OnInit {
 
   ngOnInit() {
 
-
     this.myForm = this.fb.group({
       name: ['', [Validators.required]]
     });
@@ -69,11 +68,24 @@ export class ReactiveStripeComponent implements OnInit {
                       .createToken(this.cardNumber, { name })
                       .subscribe(result => {
                         if ( result.token ) {
-                            console.log(result.token);
+                            console.log(result.token.id);
+                            const token = result.token.id;
+                            this.gotoStripeCharge(token);
                         } else if (result.error) {
                           console.log(result.error.message);
                         }
                       });
   }
 
+  gotoStripeCharge(token: string) {
+
+      
+      // console.log(token)
+      // const headers = new Headers({'token':token, 'amount':100});
+      // this.http.post('http://localhost:3000/stripepayment', {}, {headers: headers})
+      //   .subscribe(res =>{
+      //     console.log(res);
+      //   })
+      // }
+   }
 }

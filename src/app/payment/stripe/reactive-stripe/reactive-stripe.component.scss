@@ -1,65 +1,51 @@
 .row{
-    margin : 0.5rem;
+  margin : 0.5rem;
 }
 
 .form-check{
-    right : 1.2rem;
+  right : 1.2rem;
 }
 
 #cardImages>.fa{
-    font-size: 2em;
-    width: 1.5em;
-    height: 1.5em;
-    // text-align: center;
-  }
+  font-size: 2em;
+  width: 1.5em;
+  height: 1.5em;
+  // text-align: center;
+}
 
 .fa-cc-mastercard{
-    color:#b71c1c;  
+  color:#b71c1c;  
 }
 .fa-cc-visa{
-   color: #0d47a1
+ color: #0d47a1
 }
 
 .fa-cc-amex{
-    color: #4285F4
+  color: #4285F4
 }
 
 .fa-cc-discover{
-   color: #37474F
+ color: #37474F
 }
 
 .fa-cc-jcb{
-    color:#311b92
+  color:#311b92
 }
 
 .fa-cc-stripe{
-    color: #2BBBAD
+  color: #2BBBAD
 }
 
 .fa-cc-diners-club{
-    color: #3F729B
+  color: #3F729B
 }
 .fa-google-wallet{
-    color: #ffd600
+  color: #ffd600
 }
 
 .fa-paypal{
-    margin-left: 1rem;
-    font-size: 1.5rem;
-    color: #0d47a1;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  color: #0d47a1;
 }
 
-.radio-green [type="radio"]:checked+label:after {
-    border-color: #00C851;
-    background-color: #00C851;
-}
-/*Gap*/
-
-.radio-green-gap [type="radio"].with-gap:checked+label:before {
-    border-color: #00C851;
-}
-
-.radio-green-gap [type="radio"]:checked+label:after {
-    border-color: #00C851;
-    background-color: #00C851;
-}

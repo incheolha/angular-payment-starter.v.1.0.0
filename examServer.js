@@ -10,12 +10,7 @@ var mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/examSimulator");
 // mongoose.connect("mongodb://192.168.0.6:27017/examSimulator");
 
-var userRoutes = require('./backend-connection/routes/users/user');
-var registerRoutes = require('./backend-connection/routes/toefl/registerExam/registerExam');
-var readingRoutes = require('./backend-connection/routes/toefl/readingExam/readingExam');
-var showRoutes = require('./backend-connection/routes/toefl/showExam/showExam');
-var shoppingcartRoutes = require('./backend-connection/routes/toefl/payment/shoppingcart');
-
+var stripeRoutes = require('./backend-connection/routes/payment/stripe/stripepayment');
 
 
 var app = express();
@@ -48,12 +43,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/showExam', showRoutes);
-app.use('/payment', shoppingcartRoutes);
-app.use('/reading', readingRoutes);
-app.use('/registerExam', registerRoutes);
-app.use('/user', userRoutes);
-
+app.use('stripepayment', stripeRoutes);
 
 // all error are automatically send index.html
 app.get('*', (req, res) => {
