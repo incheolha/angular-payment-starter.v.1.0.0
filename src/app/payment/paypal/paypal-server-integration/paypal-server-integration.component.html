@@ -1,0 +1,27 @@
+
+
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <form [formGroup]="paypalFormGroup" (ngSubmit)="onSubmit()">
+    
+        <div class="md-form">
+
+            <input mdbInputDirective
+                   type="number" 
+                   class="form-control" 
+                   id="form6" 
+                   name="amount" 
+                   formControlName="amount"
+                   mdbInputDirective>
+              <label for="form6">Please enter the amount</label>
+
+        </div>
+        
+              <button class="btn btn-primary btn-lg">
+                   PayPal CheckOut
+              </button>
+       
+    </form>
+ 
+  </div>
+</div>

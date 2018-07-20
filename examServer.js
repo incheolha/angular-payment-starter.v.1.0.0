@@ -10,7 +10,8 @@ var mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/examSimulator");
 // mongoose.connect("mongodb://192.168.0.6:27017/examSimulator");
 
-var stripeRoutes = require('./backend-connection/routes/payment/stripe/stripepayment');
+var stripeRoutes = require('./backend-connection/routes/payment/stripe/stripe-route');
+var paypalRoutes = require('./backend-connection/routes/payment/paypal/paypal-route');
 
 
 var app = express();
@@ -44,6 +45,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/stripepayment', stripeRoutes);
+app.use('/paypal', paypalRoutes);
 
 // all error are automatically send index.html
 app.get('*', (req, res) => {

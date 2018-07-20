@@ -13,13 +13,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxStripeModule } from 'ngx-stripe';
 import { ReactiveStripeComponent } from './payment/stripe/reactive-stripe/reactive-stripe.component';
 import { CreditCardDirectivesModule } from 'angular-cc-library';
+import { PaypalServerIntegrationComponent } from './payment/paypal/paypal-server-integration/paypal-server-integration.component';
+import { PaypalService } from './payment/paypal/paypal-server-integration/paypal.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     DefaultPaypalComponent,
     DefaultStripeComponent,
     CustomStripeComponent,
-    ReactiveStripeComponent
+    ReactiveStripeComponent,
+    PaypalServerIntegrationComponent
    
   ],
   imports: [
@@ -34,7 +38,8 @@ import { CreditCardDirectivesModule } from 'angular-cc-library';
    ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
-    MDBSpinningPreloader
+    MDBSpinningPreloader,
+    PaypalService
   ],
   bootstrap: [AppComponent]
 })

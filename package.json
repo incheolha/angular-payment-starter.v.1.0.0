@@ -39,6 +39,7 @@
     "ng-uikit-pro-standard": "git+https://oauth2:M8ESsHqJnndp_YVWfSv-@git.mdbootstrap.com/mdb/angular/ng-uikit-pro-standard.git",
     "ngx-stripe": "^0.8.2",
     "path": "^0.12.7",
+    "paypal-rest-sdk": "^1.8.1",
     "rxjs": "^6.2.0",
     "rxjs-compat": "^6.2.0",
     "screenfull": "^3.3.2",
