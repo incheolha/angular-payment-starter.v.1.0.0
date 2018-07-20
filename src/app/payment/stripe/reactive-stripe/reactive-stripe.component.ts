@@ -19,12 +19,14 @@ export class ReactiveStripeComponent implements OnInit {
   cardExpiry: StripeElement;
   cardCvc: StripeElement;
 
+  card: StripeElement;
+
   elements: Elements;
 
   // optional parameters
 
   elementOptions: ElementsOptions = {
-    locale: 'en'
+    locale: 'auto'
   };
 
   stripeForm: FormGroup;
@@ -52,6 +54,7 @@ export class ReactiveStripeComponent implements OnInit {
                   this.cardNumber = this.elements.create('cardNumber', {}
                   );
                   this.cardNumber.mount('#card-number');
+                  
                 }
 
                 if (!this.cardExpiry) {
@@ -66,6 +69,9 @@ export class ReactiveStripeComponent implements OnInit {
                   this.cardCvc.mount('#card-cvc');
                 }
               });
+
+  
+
     }
 
   onStripeSubmit() {
@@ -74,19 +80,22 @@ export class ReactiveStripeComponent implements OnInit {
     console.log(this.cardNumber);
     console.log(this.cardExpiry);
     console.log(this.cardCvc);
-  
+    const amount = 1000;       
+                       //stripe은 항상 cent단위로 움직인다
     this.stripeService
                       .createToken(this.cardNumber, { name })
                       .subscribe(result => {
                         if ( result.token ) {
-                            console.log(result.token.id);
+                            console.log(result.token);
                             const token = result.token.id;
                               
                                     this.stripeInfo = new StripeModel(
                                       this.stripeForm.value.cardHolderName,
                                       this.stripeForm.value.cardHolderEmail,
                                       this.stripeForm.value.cardHolderZip,
-                                      token
+                                      token,
+                                      amount
+                                      
                                     )
 
                             this.gotoStripeCharge(this.stripeInfo);

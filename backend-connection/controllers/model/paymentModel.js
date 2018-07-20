@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 
 // 스피킹 스키마 정의
 var paymentSchema = mongoose.Schema({
-    paymentID: {type: String, trim:true, 'default':''},  //Payment Id
-    paymentType :{type: String, trim:true, 'default':''},             //ex) payment, refund, etc
+    paymentID: {type: String, trim:true, 'default':''},               //Payment Id
+    paymentAgency: {type: String, trim:true, 'default':''},            // pay agency name: stripe, paypal, etc
+    paymentType :{type: String, trim:true, 'default':''},             //ex) charge, refund, etc
     paymentAmount :{type: Number},                                    //payment Amount
     paymentDate : {type: Date, 'default': Date.now},                  //payment Date
     paymentBalanceTransactionID : {type:String, trim:true, 'default':''},    //paymentTranscationId
