@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 declare let paypal: any;
+
 @Component({
   selector: 'app-default-paypal',
   templateUrl: './default-paypal.component.html',
@@ -12,7 +13,7 @@ export class DefaultPaypalComponent implements AfterViewChecked {
   addScript = false;
   finalAmount = 1;
   paypalLoad = false;
-  
+
     paypalConfig = {
       env: 'sandbox',
       style: {
@@ -37,9 +38,9 @@ export class DefaultPaypalComponent implements AfterViewChecked {
         });
       }
     }
-  
+
     ngAfterViewChecked(): void {
-  
+
       if ( !this.addScript ) {
         this.addPaypalScript().then(() => {
             paypal.Button.render(this.paypalConfig, '#paypal-button-container');
@@ -47,11 +48,11 @@ export class DefaultPaypalComponent implements AfterViewChecked {
         });
       }
     }
-  
+
     addPaypalScript() {
       this.addScript = true;
       return new Promise((resolve, reject) => {
-  
+
        const scriptTagElement = document.createElement('script');   // <scrip src=""></script>
              scriptTagElement.src = 'https://www.paypalobjects.com/api/checkout.js';
              scriptTagElement.onload = resolve;
