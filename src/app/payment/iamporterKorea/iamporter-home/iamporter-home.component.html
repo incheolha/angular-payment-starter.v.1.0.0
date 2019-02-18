@@ -1,118 +1,513 @@
 
-<div class="jumbotron text-center z-depth-1">
+<div class="text-center mt-5">
       <h1><strong>Iamporter Payment System</strong></h1>
       <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
         featured content or information.</p>
 
-<hr class="my-4">
+<hr class="col-md-8">
 
   <div class="row">
-    <div class="col-10 mx-auto">
-        <mdb-card>
+    <div class="col-md-8 mx-auto">
+        <mdb-card class="z-depth-0">
             <mdb-card-body>
               <div class="row">
-                  <div class="col-6 text-left">
-                      <h2>
-                      <strong>
-                          <mdb-badge pill="true" color="black">
-                              <mdb-icon far icon="credit-card" size="1x"></mdb-icon>
-                            </mdb-badge>
-                      </strong>
-                      주문/결제</h2>
+                  <div class="col-md-6 text-left text-black-50">
+                    <h3>
+                      <a type="button" class="btn-floating btn-fb" mdbWavesEffect>
+                        <mdb-icon far icon="credit-card"></mdb-icon>
+                    </a>결재/주문
+                    </h3>
                   </div>
-                  <div class="col-6 text-right">
+                  <div class="col-md-6 text-right">
                   </div>
               </div>
-            <hr>
-            <div class="row mx-auto">
+            <hr class="m-0">
 
-              <mdb-card class="col-md-9 text-center p-0">
-                <mdb-card-header class="dark-grey-text">
-                  <h3><strong>Customer Information</strong></h3>
-                </mdb-card-header>
+            <div class="row mt-4">
+                <div class="col-md-12 mx-auto">
 
-                  <div class="table-responsive">
-                      <table class="table text-right">
-                          <tbody>
+                    <div [ngClass]="{ 'card card-cascade narrower': true, 'z-depth-1': !shadows }">
 
-                              <td colspan="2">Subtotal:</td>
-                              <td colspan="1">{{ totalAmount | currency : "USD"}}</td>
+                        <!--Card image-->
+                        <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
-                              <tr>
-                                  <td colspan="2">
-                                    Applied D/C:
-                                  </td>
-                                  <td colspan="2">
+                            <div>
+                                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                    <mdb-icon fas icon="th-large" class="mt-0"></mdb-icon>
+                                </button>
+                                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                    <mdb-icon fas icon="columns" class="mt-0"></mdb-icon>
+                                </button>
+                            </div>
 
-                                  </td>
-                              </tr>
+                            <a href="" class="white-text mx-3">주문상품확인 및 할인적용</a>
 
-                              <tr>
-                              <td colspan="2">Estimated Tax:</td>
-                              <td colspan="1"></td>
-                              </tr>
-                              <tr>
-                                  <th colspan="2">Total:</th>
-                                  <th colspan="1">{{ totalAmount | currency : "USD"}}</th>
-                              </tr>
-                              <tr>
-                                <td colspan="4">
-                                    <button class="btn btn-block btn-sm red" id="couponBtn" (click)="goCancel()">Cancel</button>
-                                </td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
+                            <div>
+                                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                    <mdb-icon fas icon="pencil-alt" class="mt-0"></mdb-icon>
+                                </button>
+                                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                    <mdb-icon fas icon="times" class="mt-0"></mdb-icon>
+                                </button>
+                                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                    <mdb-icon fas icon="info-circle" class="mt-0"></mdb-icon>
+                                </button>
+                            </div>
 
-                <mdb-card-footer class="text-muted success-color white-text">
-                  <p class="mb-0">2 days ago</p>
-                </mdb-card-footer>
-              </mdb-card>
+                        </div>
+                        <!--/Card image-->
 
-              <mdb-card class="col text-center ml-2 p-0">
-                <mdb-card-header class="dark-grey-text">
-                  <h3><strong>Order Summary</strong></h3>
-                </mdb-card-header>
+                        <div class="px-4">
 
-                  <div class="table-responsive">
-                      <table class="table text-right">
-                          <tbody>
+                            <div class="table-responsive">
+                                <!--Table-->
+                                <table class="table mb-3 border">
 
-                              <td colspan="2">Subtotal:</td>
-                              <td colspan="1">{{ totalAmount | currency : "USD"}}</td>
+                                    <!--Table head-->
+                                    <thead class="blue-grey lighten-4">
+                                        <tr>
 
-                              <tr>
-                                  <td colspan="2">
-                                    Applied D/C:
-                                  </td>
-                                  <td colspan="2">
+                                            <th class="th-lg">
+                                                <a (click)="sortBy('first')">상품/옵션정보
+                                                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                                                </a>
+                                            </th>
+                                            <th class="th-lg">
+                                                <a (click)="sortBy('last')">수량
+                                                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                                                </a>
+                                            </th>
+                                            <th class="th-lg">
+                                                <a (click)="sortBy('username')">상품금액
+                                                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                                                </a>
+                                            </th>
+                                            <th class="th-lg">
+                                                <a (click)="sortBy('email')">할인금액
+                                                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                                                </a>
+                                            </th>
+                                            <th class="th-lg">
+                                                <a (click)="sortBy('country')">할인적용금액
+                                                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                                                </a>
+                                            </th>
+                                            <th class="th-lg">
+                                                <a (click)="sortBy('city')">베송비/판매자
+                                                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                                                </a>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
 
-                                  </td>
-                              </tr>
+                                    <!--Table body-->
+                                    <tbody>
+                                        <tr *ngFor="let row of tableData;let i = index">
+                                            <td>{{row.first}}</td>
+                                            <td>10</td>
+                                            <td>100,000</td>
+                                            <td>8000</td>
+                                            <td>92,000</td>
+                                            <td>김 개똥</td>
+                                        </tr>
+                                    </tbody>
+                                    <!--Table body-->
+                                </table>
+                                <!--Table-->
+                            </div>
 
-                              <tr>
-                              <td colspan="2">Estimated Tax:</td>
-                              <td colspan="1"></td>
-                              </tr>
-                              <tr>
-                                  <th colspan="2">Total:</th>
-                                  <th colspan="1">{{ totalAmount | currency : "USD"}}</th>
-                              </tr>
-                              <tr>
-                                <td colspan="4">
-                                    <button class="btn btn-block btn-sm red" id="couponBtn" (click)="goCancel()">Cancel</button>
-                                </td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
+                            <hr class="my-0">
 
-                <mdb-card-footer class="text-muted success-color white-text">
-                  <p class="mb-0">2 days ago</p>
-                </mdb-card-footer>
-              </mdb-card>
+                        </div>
+                    </div>
 
+                </div>
             </div>
+
+
+            <div class="row mt-4">
+              <div class="col-md-12 mx-auto">
+
+
+                  <div [ngClass]="{ 'card card-cascade narrower': true, 'z-depth-1': !shadows }">
+
+                      <!--Card image-->
+                      <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+                          <div>
+                              <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                  <mdb-icon fas icon="th-large" class="mt-0"></mdb-icon>
+                              </button>
+                              <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                  <mdb-icon fas icon="columns" class="mt-0"></mdb-icon>
+                              </button>
+                          </div>
+
+                          <a href="" class="white-text mx-3">배송지 정보확인</a>
+
+                          <div>
+                              <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                  <mdb-icon fas icon="pencil-alt" class="mt-0"></mdb-icon>
+                              </button>
+                              <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                  <mdb-icon fas icon="times" class="mt-0"></mdb-icon>
+                              </button>
+                              <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                  <mdb-icon fas icon="info-circle" class="mt-0"></mdb-icon>
+                              </button>
+                          </div>
+
+                      </div>
+                      <!--/Card image-->
+
+
+                      <!--Card content-->
+                      <div class="card-body card-body-cascade text-center">
+                          <!--Contact Form-->
+                          <form>
+
+                              <!--First row-->
+                              <div class="row">
+                                  <!--First column-->
+                                  <div class="col-md-4">
+                                      <div class="md-form">
+                                          <input placeholder="johnDoe78" [disabled]='true' type="text" id="form11" class="form-control">
+                                          <label class="active disabled" for="form11">Username (can't be changed)</label>
+                                      </div>
+                                  </div>
+
+                                  <!--Second column-->
+                                  <div class="col-md-4">
+                                      <div class="md-form">
+                                          <input placeholder="John" type="text" id="form12" class="form-control">
+                                          <label class="active" for="form12">First Name</label>
+                                      </div>
+                                  </div>
+
+                                  <!--Third column-->
+                                  <div class="col-md-4">
+                                      <div class="md-form">
+                                          <input placeholder="Doe" type="text" id="form13" class="form-control">
+                                          <label class="active" for="form13">Last Name</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--/.First row-->
+
+                              <!--Second row-->
+                              <div class="row">
+                                  <!--First column-->
+                                  <div class="col-md-6 pr-0">
+                                      <div class="md-form">
+                                          <input placeholder="" mdbInputDirective type="text" id="form21" class="form-control">
+                                          <label for="form21">Address line 1</label>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-md-2 p-0">
+                                      <div class="md-form">
+                                          <button type="button" class="btn btn-primary btn-sm" mdbWavesEffect>주소찿기</button>
+                                      </div>
+                                  </div>
+
+                                  <!--Second column-->
+                                  <div class="col-md-4">
+                                      <div class="md-form">
+                                          <input placeholder="" mdbInputDirective type="text" id="form22" class="form-control">
+                                          <label for="form22">Address line 2</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--/.Second row-->
+
+                              <!--Third row-->
+                              <div class="row">
+                                  <!--First column-->
+                                  <div class="col-md-4">
+                                      <div class="md-form">
+                                          <input placeholder="New York" type="text" id="form31" class="form-control">
+                                          <label class="active" for="form31">City</label>
+                                      </div>
+                                  </div>
+
+                                  <!--Second column-->
+                                  <div class="col-md-4">
+                                      <div class="md-form">
+                                          <input placeholder="00432" type="text" id="form32" class="form-control">
+                                          <label class="active" for="form32">Postcode</label>
+                                      </div>
+                                  </div>
+
+                                  <!--Third column-->
+                                  <div class="col-md-4">
+                                      <div class="md-form">
+                                          <input type="text" mdbInputDirective id="form33" class="form-control">
+                                          <label for="form33">Country</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--/.Third row-->
+
+                              <!--Fourth row-->
+                              <div class="row">
+                                  <div class="col-md-12">
+
+                                  </div>
+
+
+                              </div>
+                              <!--/.Fourth row-->
+
+
+                          </form>
+
+                      </div>
+                      <!--/.Card content-->
+
+                  </div>
+                  <!--/.Card-->
+
+
+
+
+
+
+
+              </div>
+            </div>
+              <div class="row mt-4">
+                  <div class="col-md-9">
+
+
+                      <div [ngClass]="{ 'card card-cascade narrower': true, 'z-depth-1': !shadows }">
+
+                          <!--Card image-->
+                          <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+                              <div>
+                                  <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                      <mdb-icon fas icon="th-large" class="mt-0"></mdb-icon>
+                                  </button>
+                                  <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                      <mdb-icon fas icon="columns" class="mt-0"></mdb-icon>
+                                  </button>
+                              </div>
+
+                              <a href="" class="white-text mx-3">결제방법 선택</a>
+
+                              <div>
+                                  <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                      <mdb-icon fas icon="pencil-alt" class="mt-0"></mdb-icon>
+                                  </button>
+                                  <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                      <mdb-icon fas icon="times" class="mt-0"></mdb-icon>
+                                  </button>
+                                  <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                      <mdb-icon fas icon="info-circle" class="mt-0"></mdb-icon>
+                                  </button>
+                              </div>
+
+                          </div>
+                          <!--/Card image-->
+
+                          <!--Card content-->
+                          <div class="card-body card-body-cascade text-center">
+                              <!--Contact Form-->
+                              <form>
+
+                                  <!--First row-->
+                                  <div class="row">
+                                      <!--First column-->
+                                      <div class="col-md-4">
+                                          <div class="md-form">
+                                              <input placeholder="johnDoe78" [disabled]='true' type="text" id="form11" class="form-control">
+                                              <label class="active disabled" for="form11">Username (can't be changed)</label>
+                                          </div>
+                                      </div>
+
+                                      <!--Second column-->
+                                      <div class="col-md-4">
+                                          <div class="md-form">
+                                              <input placeholder="John" type="text" id="form12" class="form-control">
+                                              <label class="active" for="form12">First Name</label>
+                                          </div>
+                                      </div>
+
+                                      <!--Third column-->
+                                      <div class="col-md-4">
+                                          <div class="md-form">
+                                              <input placeholder="Doe" type="text" id="form13" class="form-control">
+                                              <label class="active" for="form13">Last Name</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!--/.First row-->
+
+                                  <!--Second row-->
+                                  <div class="row">
+                                      <!--First column-->
+                                      <div class="col-md-6 pr-0">
+                                          <div class="md-form">
+                                              <input placeholder="" mdbInputDirective type="text" id="form21" class="form-control">
+                                              <label for="form21">Address line 1</label>
+                                          </div>
+                                      </div>
+
+                                      <div class="col-md-2 p-0">
+                                          <div class="md-form">
+                                              <button type="button" class="btn btn-primary btn-sm" mdbWavesEffect>주소찿기</button>
+                                          </div>
+                                      </div>
+
+                                      <!--Second column-->
+                                      <div class="col-md-4">
+                                          <div class="md-form">
+                                              <input placeholder="" mdbInputDirective type="text" id="form22" class="form-control">
+                                              <label for="form22">Address line 2</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!--/.Second row-->
+
+                                  <!--Third row-->
+                                  <div class="row">
+                                      <!--First column-->
+                                      <div class="col-md-4">
+                                          <div class="md-form">
+                                              <input placeholder="New York" type="text" id="form31" class="form-control">
+                                              <label class="active" for="form31">City</label>
+                                          </div>
+                                      </div>
+
+                                      <!--Second column-->
+                                      <div class="col-md-4">
+                                          <div class="md-form">
+                                              <input placeholder="00432" type="text" id="form32" class="form-control">
+                                              <label class="active" for="form32">Postcode</label>
+                                          </div>
+                                      </div>
+
+                                      <!--Third column-->
+                                      <div class="col-md-4">
+                                          <div class="md-form">
+                                              <input type="text" mdbInputDirective id="form33" class="form-control">
+                                              <label for="form33">Country</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!--/.Third row-->
+
+                                  <!--Fourth row-->
+                                  <div class="row">
+                                      <div class="col-md-12">
+
+                                      </div>
+
+
+                                  </div>
+                                  <!--/.Fourth row-->
+
+
+                              </form>
+
+                          </div>
+                          <!--/.Card content-->
+
+                      </div>
+                      <!--/.Card-->
+
+
+
+
+
+
+
+                  </div>
+                  <div class="col-md-3">
+
+
+                    <!--Card-->
+                    <div class="card card-cascade narrower">
+
+                        <!--Card image-->
+                        <div class="view view-cascade overlay hm-white-slight waves-light" mdbWavesEffect>
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20%283%29.jpg" class="img-fluid">
+                            <a>
+                                <div class="mask"></div>
+                            </a>
+                        </div>
+                        <!--/Card image-->
+
+                        <!--Card content-->
+                        <div class="card-body card-body-cascade text-center">
+                            <!--Title-->
+                            <h4 class="card-title mb-2 font-bold">
+                                <strong>Alice Mayer</strong>
+                            </h4>
+                            <h5 class="indigo-text">
+                                <strong>Photographer</strong>
+                            </h5>
+
+                            <h6 class='text-justify'>
+                                <strong>About:</strong>
+                            </h6>
+                            <p class='text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione perferendis quod animi dignissimos...</p>
+
+                            <div class="text-right">
+                                <button type="button" class="btn btn-outline-primary btn-rounded  btn-sm" mdbWavesEffect>More...</button>
+                            </div>
+
+                            <hr>
+                            <!-- <h6 class='text-justify'><strong>About:</strong></h6> -->
+
+                            <div class="row">
+                                <div class="col-md-8 text-left">Followers:</div>
+                                <div class="col-md-4 text-right">
+                                    <strong>675</strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 text-left">Following:</div>
+                                <div class="col-md-4 text-right">
+                                    <b>234</b>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 text-left">Songs:</div>
+                                <div class="col-md-4 text-right">27</div>
+                            </div>
+
+                            <hr>
+
+                            <!--Linkedin-->
+                            <a class="icons-sm li-ic px-3">
+                                <mdb-icon fab icon="linkedin-in"></mdb-icon>
+                            </a>
+                            <!--Twitter-->
+                            <a class="icons-sm tw-ic px-3">
+                                <mdb-icon fab icon="twitter"></mdb-icon>
+                            </a>
+                            <!--Dribbble-->
+                            <a class="icons-sm fb-ic px-3">
+                                <mdb-icon fab icon="facebook-f"></mdb-icon>
+                            </a>
+
+                        </div>
+                        <!--/.Card content-->
+
+                    </div>
+                    <!--/.Card-->
+
+                  </div>
+
+
+
+
+
+
+             </div>
+
 
           </mdb-card-body>
         </mdb-card>
