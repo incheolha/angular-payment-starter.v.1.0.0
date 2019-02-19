@@ -276,8 +276,11 @@
 
               </div>
             </div>
+
+ <!-- 결제 방법 선택영영 -->
+
               <div class="row mt-4">
-                  <div class="col-md-9">
+                  <div class="col-md-8">
 
 
                       <div [ngClass]="{ 'card card-cascade narrower': true, 'z-depth-1': !shadows }">
@@ -313,118 +316,60 @@
 
                           <!--Card content-->
                           <div class="card-body card-body-cascade text-center">
-                              <!--Contact Form-->
-                              <form>
-
-                                  <!--First row-->
-                                  <div class="row">
-                                      <!--First column-->
-                                      <div class="col-md-4">
-                                          <div class="md-form">
-                                              <input placeholder="johnDoe78" [disabled]='true' type="text" id="form11" class="form-control">
-                                              <label class="active disabled" for="form11">Username (can't be changed)</label>
-                                          </div>
-                                      </div>
-
-                                      <!--Second column-->
-                                      <div class="col-md-4">
-                                          <div class="md-form">
-                                              <input placeholder="John" type="text" id="form12" class="form-control">
-                                              <label class="active" for="form12">First Name</label>
-                                          </div>
-                                      </div>
-
-                                      <!--Third column-->
-                                      <div class="col-md-4">
-                                          <div class="md-form">
-                                              <input placeholder="Doe" type="text" id="form13" class="form-control">
-                                              <label class="active" for="form13">Last Name</label>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <!--/.First row-->
-
-                                  <!--Second row-->
-                                  <div class="row">
-                                      <!--First column-->
-                                      <div class="col-md-6 pr-0">
-                                          <div class="md-form">
-                                              <input placeholder="" mdbInputDirective type="text" id="form21" class="form-control">
-                                              <label for="form21">Address line 1</label>
-                                          </div>
-                                      </div>
-
-                                      <div class="col-md-2 p-0">
-                                          <div class="md-form">
-                                              <button type="button" class="btn btn-primary btn-sm" mdbWavesEffect>주소찿기</button>
-                                          </div>
-                                      </div>
-
-                                      <!--Second column-->
-                                      <div class="col-md-4">
-                                          <div class="md-form">
-                                              <input placeholder="" mdbInputDirective type="text" id="form22" class="form-control">
-                                              <label for="form22">Address line 2</label>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <!--/.Second row-->
-
-                                  <!--Third row-->
-                                  <div class="row">
-                                      <!--First column-->
-                                      <div class="col-md-4">
-                                          <div class="md-form">
-                                              <input placeholder="New York" type="text" id="form31" class="form-control">
-                                              <label class="active" for="form31">City</label>
-                                          </div>
-                                      </div>
-
-                                      <!--Second column-->
-                                      <div class="col-md-4">
-                                          <div class="md-form">
-                                              <input placeholder="00432" type="text" id="form32" class="form-control">
-                                              <label class="active" for="form32">Postcode</label>
-                                          </div>
-                                      </div>
-
-                                      <!--Third column-->
-                                      <div class="col-md-4">
-                                          <div class="md-form">
-                                              <input type="text" mdbInputDirective id="form33" class="form-control">
-                                              <label for="form33">Country</label>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <!--/.Third row-->
-
-                                  <!--Fourth row-->
-                                  <div class="row">
-                                      <div class="col-md-12">
-
-                                      </div>
+                              <div class="borderClass mx-auto">
+                                <div class="row mx-auto">
+                                    <div class="col-md-2">결제수단&nbsp;&nbsp;&nbsp;</div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-8">
 
 
-                                  </div>
-                                  <!--/.Fourth row-->
+                                              <div class="form-check">
+                                                  <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" mdbInput>
+                                                  <label class="form-check-label" for="materialUnchecked">신용카드</label>
+                                              </div>
 
 
-                              </form>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" mdbInput>
+                                                    <label class="form-check-label" for="materialUnchecked">휴대폰 결제</label>
+                                                </div>
 
-                          </div>
-                          <!--/.Card content-->
 
-                      </div>
+
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" mdbInput>
+                                                    <label class="form-check-label" for="materialUnchecked">실시간 계좌이체</label>
+                                                </div>
+
+
+
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" mdbInput>
+                                                    <label class="form-check-label" for="materialUnchecked">해외 발급카드</label>
+                                                </div>
+
+
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" mdbInput>
+                                                    <label class="form-check-label" for="materialUnchecked">페이팔</label>
+                                                </div>
+
+
+                                    </div>
+                                </div>
+                                <hr>
+                              </div>
+
+                        </div>
                       <!--/.Card-->
 
-
-
-
-
-
+                      </div>
 
                   </div>
-                  <div class="col-md-3">
+
+<!-- 최종 결제및 결제 수단 선택하기 -->
+
+                  <div class="col-md-4">
 
 
                     <!--Card-->
@@ -440,61 +385,66 @@
                         <!--/Card image-->
 
                         <!--Card content-->
-                        <div class="card-body card-body-cascade text-center">
+                        <div class="card-body card-body-cascade">
                             <!--Title-->
                             <h4 class="card-title mb-2 font-bold">
-                                <strong>Alice Mayer</strong>
+                                <strong>총 결제금액</strong>
                             </h4>
+                            <hr>
+
                             <h5 class="indigo-text">
-                                <strong>Photographer</strong>
+                                <strong>96000원</strong>
                             </h5>
-
-                            <h6 class='text-justify'>
-                                <strong>About:</strong>
-                            </h6>
-                            <p class='text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione perferendis quod animi dignissimos...</p>
-
-                            <div class="text-right">
-                                <button type="button" class="btn btn-outline-primary btn-rounded  btn-sm" mdbWavesEffect>More...</button>
-                            </div>
-
-                            <hr>
-                            <!-- <h6 class='text-justify'><strong>About:</strong></h6> -->
-
-                            <div class="row">
-                                <div class="col-md-8 text-left">Followers:</div>
-                                <div class="col-md-4 text-right">
-                                    <strong>675</strong>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 text-left">Following:</div>
-                                <div class="col-md-4 text-right">
-                                    <b>234</b>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 text-left">Songs:</div>
-                                <div class="col-md-4 text-right">27</div>
-                            </div>
-
                             <hr>
 
-                            <!--Linkedin-->
-                            <a class="icons-sm li-ic px-3">
-                                <mdb-icon fab icon="linkedin-in"></mdb-icon>
-                            </a>
-                            <!--Twitter-->
-                            <a class="icons-sm tw-ic px-3">
-                                <mdb-icon fab icon="twitter"></mdb-icon>
-                            </a>
-                            <!--Dribbble-->
-                            <a class="icons-sm fb-ic px-3">
-                                <mdb-icon fab icon="facebook-f"></mdb-icon>
-                            </a>
+                            <!-- 개인정보 동의 점검 -->
+                            <div class="custom-checkbox">
+
+                                        <input type="checkbox" class="custom-control-input" id="defaultUncheckedDisabled2" disabled>
+                                        <label class="custom-control-label text-dark">개인정보 판매자 제공에 동의합니다.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+                                        <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3">
+
+                                        </textarea>
+
+                            </div>
+
+                            <div class="custom-checkbox mt-3">
+
+                                    <input type="checkbox" class="custom-control-input" id="defaultUncheckedDisabled2" disabled>
+                                    <label class="custom-control-label text-dark">개인정보 수집및이용에 동의합니다.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+                                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3">
+
+                                    </textarea>
 
                         </div>
-                        <!--/.Card content-->
+                        <div class="custom-checkbox mt-3">
+
+                                <input type="checkbox" class="custom-control-input" id="defaultUncheckedDisabled2" disabled>
+                                <label class="custom-control-label text-dark">주문상품 정보에 동의합니다.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+                                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3">
+
+                                </textarea>
+
+                        </div>
+
+                        <div class="custom-control custom-checkbox mt-3">
+
+                                <input type="checkbox" class="custom-control-input" id="defaultUncheckedDisabled2" disabled>
+                                <label class="custom-control-label text-dark">위내용을 확인하였으며 모든 내용에 동의함.&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+                        </div>
+
+                        <div class="mt-3">
+                                <button type="button" class="btn btn-pin" mdbWavesEffect>
+                                        <mdb-icon far icon="credit-card" class="left"></mdb-icon> 결제하기</button>
+                                <button type="button" class="btn btn-outline-secondary" mdbWavesEffect>
+                                        <mdb-icon fas icon="ban" class="left"></mdb-icon>취소하기</button>
+                        </div>
+
+                    </div>
 
                     </div>
                     <!--/.Card-->
@@ -502,12 +452,7 @@
                   </div>
 
 
-
-
-
-
-             </div>
-
+            </div>
 
           </mdb-card-body>
         </mdb-card>
