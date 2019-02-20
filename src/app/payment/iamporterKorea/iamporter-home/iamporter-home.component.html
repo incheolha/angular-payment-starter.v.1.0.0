@@ -125,6 +125,7 @@
                 </div>
             </div>
 
+<!-- 배송지 정보확인 -->
 
             <div class="row mt-4">
               <div class="col-md-12 mx-auto">
@@ -163,101 +164,93 @@
 
 
                       <!--Card content-->
-                      <div class="card-body card-body-cascade text-center">
+                      <div class="card-body card-body-cascade text-center pl-5 pr-5">
                           <!--Contact Form-->
                           <form>
 
-                              <!--First row-->
-                              <div class="row">
-                                  <!--First column-->
-                                  <div class="col-md-4">
-                                      <div class="md-form">
-                                          <input placeholder="johnDoe78" [disabled]='true' type="text" id="form11" class="form-control">
-                                          <label class="active disabled" for="form11">Username (can't be changed)</label>
-                                      </div>
+                              <div class="row textPosition blue-grey lighten-5">
+                                  <div class="col-md-2 blue-grey lighten-4">
+                                      <div class="md-form mt-4 blue-grey lighten-4">받으시는 분</div>
                                   </div>
-
-                                  <!--Second column-->
                                   <div class="col-md-4">
                                       <div class="md-form">
-                                          <input placeholder="John" type="text" id="form12" class="form-control">
-                                          <label class="active" for="form12">First Name</label>
-                                      </div>
-                                  </div>
-
-                                  <!--Third column-->
-                                  <div class="col-md-4">
-                                      <div class="md-form">
-                                          <input placeholder="Doe" type="text" id="form13" class="form-control">
-                                          <label class="active" for="form13">Last Name</label>
-                                      </div>
+                                          <input mdbInput type="text" class="form-control" placeholder="이름">
+                                        </div>
                                   </div>
                               </div>
-                              <!--/.First row-->
-
-                              <!--Second row-->
-                              <div class="row">
-                                  <!--First column-->
-                                  <div class="col-md-6 pr-0">
-                                      <div class="md-form">
-                                          <input placeholder="" mdbInputDirective type="text" id="form21" class="form-control">
-                                          <label for="form21">Address line 1</label>
-                                      </div>
+                              <div class="row textPosition blue-grey lighten-5">
+                                  <div class="col-md-2 m-0 blue-grey lighten-4">
+                                      <div class="md-form m-0">주소</div>
                                   </div>
-
-                                  <div class="col-md-2 p-0">
-                                      <div class="md-form">
+                                  <div class="col-md-1">
+                                      <div class="md-form mt-0">
+                                          <input mdbInput type="text" class="form-control" placeholder="우편번호">
+                                        </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                      <div class="md-form m-0">
                                           <button type="button" class="btn btn-primary btn-sm" mdbWavesEffect>주소찿기</button>
                                       </div>
                                   </div>
 
-                                  <!--Second column-->
-                                  <div class="col-md-4">
-                                      <div class="md-form">
-                                          <input placeholder="" mdbInputDirective type="text" id="form22" class="form-control">
-                                          <label for="form22">Address line 2</label>
-                                      </div>
-                                  </div>
                               </div>
-                              <!--/.Second row-->
-
-                              <!--Third row-->
-                              <div class="row">
-                                  <!--First column-->
-                                  <div class="col-md-4">
-                                      <div class="md-form">
-                                          <input placeholder="New York" type="text" id="form31" class="form-control">
-                                          <label class="active" for="form31">City</label>
-                                      </div>
+                              <div class="row textPosition blue-grey lighten-5">
+                                  <div class="col-md-2 blue-grey lighten-4">
                                   </div>
-
-                                  <!--Second column-->
-                                  <div class="col-md-4">
-                                      <div class="md-form">
-                                          <input placeholder="00432" type="text" id="form32" class="form-control">
-                                          <label class="active" for="form32">Postcode</label>
-                                      </div>
+                                  <div class="col-md-8">
+                                      <div class="md-form mt-0">
+                                          <input mdbInput type="text" class="form-control" placeholder="주소지 1">
+                                        </div>
                                   </div>
-
-                                  <!--Third column-->
-                                  <div class="col-md-4">
-                                      <div class="md-form">
-                                          <input type="text" mdbInputDirective id="form33" class="form-control">
-                                          <label for="form33">Country</label>
-                                      </div>
-                                  </div>
-                              </div>
-                              <!--/.Third row-->
-
-                              <!--Fourth row-->
-                              <div class="row">
-                                  <div class="col-md-12">
-
-                                  </div>
-
 
                               </div>
-                              <!--/.Fourth row-->
+                              <div class="row textPosition blue-grey lighten-5">
+                                  <div class="col-md-2 blue-grey lighten-4">
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="md-form mt-0">
+                                          <input mdbInput type="text" class="form-control" placeholder="주소지 2">
+                                        </div>
+                                  </div>
+
+                              </div>
+
+                              <div class="row textPosition blue-grey lighten-5">
+                                  <div class="col-md-2 mt-0 blue-grey lighten-4">
+                                    휴대전화
+                                  </div>
+                                  <div class="col-md-1">
+                                      <div class="md-form mt-0">
+                                          <input mdbInput type="text" class="form-control" placeholder="010">
+                                      </div>
+                                  </div>
+                                  <div class="col-md-1">
+                                      <div class="md-form mt-0">
+                                          <input mdbInput type="text" class="form-control" placeholder="1234">
+                                      </div>
+                                  </div>
+                                  <div class="col-md-1">
+                                      <div class="md-form mt-0">
+                                          <input mdbInput type="text" class="form-control" placeholder="5678">
+                                      </div>
+                                  </div>
+
+                              </div>
+
+
+                              <div class="row textPosition blue-grey lighten-5">
+                                <div class="col-md-2 blue-grey lighten-4">
+                                  <span>주문자 정보
+                                    </span>
+                                  </div>
+                                <div class="col-md-4">
+                                    <div class="md-form mt-0">
+                                        <input mdbInput type="text" class="form-control" placeholder="하인철">
+                                    </div>
+
+                                </div>
+
+                            </div>
 
 
                           </form>
@@ -286,7 +279,7 @@
                       <div [ngClass]="{ 'card card-cascade narrower': true, 'z-depth-1': !shadows }">
 
                           <!--Card image-->
-                          <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+                          <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-2 d-flex justify-content-between align-items-center">
 
                               <div>
                                   <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
@@ -317,39 +310,39 @@
                           <!--Card content-->
                           <div class="card-body card-body-cascade text-center">
                               <div class="borderClass mx-auto">
-                                <div class="row mx-auto">
-                                    <div class="col-md-2">결제수단&nbsp;&nbsp;&nbsp;</div>
-                                    <div class="col-md-2"></div>
+                                <div class="row blue-grey lighten-5">
+                                    <div class="col-md-2 pt-5 blue-grey lighten-4">결제수단&nbsp;&nbsp;&nbsp;</div>
+                                    <div class="col-md-2 blue-grey lighten-4"></div>
                                     <div class="col-md-8">
 
 
-                                              <div class="form-check">
+                                              <div class="form-check mt-2">
                                                   <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" mdbInput>
                                                   <label class="form-check-label" for="materialUnchecked">신용카드</label>
                                               </div>
 
 
-                                                <div class="form-check">
+                                                <div class="form-check mt-2">
                                                     <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" mdbInput>
                                                     <label class="form-check-label" for="materialUnchecked">휴대폰 결제</label>
                                                 </div>
 
 
 
-                                                <div class="form-check">
+                                                <div class="form-check mt-2">
                                                     <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" mdbInput>
                                                     <label class="form-check-label" for="materialUnchecked">실시간 계좌이체</label>
                                                 </div>
 
 
 
-                                                <div class="form-check">
+                                                <div class="form-check mt-2">
                                                     <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" mdbInput>
                                                     <label class="form-check-label" for="materialUnchecked">해외 발급카드</label>
                                                 </div>
 
 
-                                                <div class="form-check">
+                                                <div class="form-check mt-2 mb-2">
                                                     <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" mdbInput>
                                                     <label class="form-check-label" for="materialUnchecked">페이팔</label>
                                                 </div>
@@ -357,8 +350,18 @@
 
                                     </div>
                                 </div>
-                                <hr>
+
                               </div>
+                              <div class="textPosition mt-2 pl-2">
+                                  <span>무이자할부 적용카드</span>
+                              </div>
+                              <div class="borderClass1 mx-auto">
+
+                                <p>각종 카드정보확인</p>
+                              </div>
+
+
+
 
                         </div>
                       <!--/.Card-->
