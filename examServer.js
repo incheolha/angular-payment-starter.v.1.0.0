@@ -7,11 +7,12 @@ var bodyParser = require('body-parser');
 
 // connecting mongoose
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/examSimulator");
-// mongoose.connect("mongodb://192.168.0.6:27017/examSimulator");
+// mongoose.connect("mongodb://localhost:27017/examSimulator");
+// mongoose.connect("mongodb://192.168.0.86:27017/examSimulator");
 
 var stripeRoutes = require('./backend-connection/routes/payment/stripe/stripe-route');
 var paypalRoutes = require('./backend-connection/routes/payment/paypal/paypal-route');
+var iamportRoutes = require('./backend-connection/routes/payment/iamportKorea/iamport-route');
 
 
 var app = express();
@@ -46,7 +47,7 @@ app.use(function(req, res, next) {
 
 app.use('/stripepayment', stripeRoutes);
 app.use('/paypal', paypalRoutes);
-
+app.use('/iamport', iamportRoutes);
 // all error are automatically send index.html
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));

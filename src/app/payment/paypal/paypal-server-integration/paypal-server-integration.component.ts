@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { PaypalService } from './paypal.service';
-import { PaymentModel } from './payment.model';
+import { PaymentModel } from '../../payment.model';
 
 @Component({
   selector: 'app-paypal-server-integration',
