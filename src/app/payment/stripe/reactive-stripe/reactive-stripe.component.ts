@@ -54,7 +54,7 @@ export class ReactiveStripeComponent implements OnInit {
                   this.cardNumber = this.elements.create('cardNumber', {}
                   );
                   this.cardNumber.mount('#card-number');
-                  
+
                 }
 
                 if (!this.cardExpiry) {
@@ -70,17 +70,17 @@ export class ReactiveStripeComponent implements OnInit {
                 }
               });
 
-  
+
 
     }
 
   onStripeSubmit() {
     console.log(this.stripeForm.value);
-    
+
     console.log(this.cardNumber);
     console.log(this.cardExpiry);
     console.log(this.cardCvc);
-    const amount = 1000;       
+    const amount = 1000;
                        //stripe은 항상 cent단위로 움직인다
     this.stripeService
                       .createToken(this.cardNumber, { name })
@@ -88,14 +88,14 @@ export class ReactiveStripeComponent implements OnInit {
                         if ( result.token ) {
                             console.log(result.token);
                             const token = result.token.id;
-                              
+
                                     this.stripeInfo = new StripeModel(
                                       this.stripeForm.value.cardHolderName,
                                       this.stripeForm.value.cardHolderEmail,
                                       this.stripeForm.value.cardHolderZip,
                                       token,
                                       amount
-                                      
+
                                     )
 
                             this.gotoStripeCharge(this.stripeInfo);
@@ -108,14 +108,18 @@ export class ReactiveStripeComponent implements OnInit {
   gotoStripeCharge(stripeCardInfo: StripeModel) {
 
       const body = JSON.stringify(stripeCardInfo);
-      
+
       console.log(body);
-    
+
       const header = new Headers({'Content-Type': 'application/json'});
       this.http.post('http://localhost:3000/stripepayment', body, {headers: header})
            .subscribe(res =>{
                 console.log(res);
            }),
            (error => console.error(error));
+   }
+
+   onPaypalSubmit() {
+
    }
 }

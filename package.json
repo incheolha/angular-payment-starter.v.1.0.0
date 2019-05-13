@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node ./expressServer/www",
-    "build": "ng build && node ./expressServer/wwww",
+    "build": "ng build && node ./expressServer/www",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
